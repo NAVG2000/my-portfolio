@@ -13,6 +13,6 @@ public class SecretResponse extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello friend! This is a secret response.</h1>");
+    response.getWriter().println("<h2>Hello friend! This is a secret response.</h2>");
   }
 }

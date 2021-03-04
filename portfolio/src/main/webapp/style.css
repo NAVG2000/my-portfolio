@@ -19,8 +19,9 @@ body {
     background-color: cornsilk;
 }
 
-#greeting-container {
+#secret-message-container {
     margin-top: 20px;
-    font-size: 24px;
+    margin-bottom: 20px;
+    font-size: 18x;
     color: darkmagenta;
 }

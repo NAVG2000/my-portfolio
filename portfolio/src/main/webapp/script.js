@@ -15,20 +15,10 @@
 /**
  * Adds a random greeting to the page.
  */
-function addRandomFact() {
-  const greetings =
-      ['My favorite season is winter', 'I\'ve never had a dog, but I would like to have one someday', 'I like playing video games'];
-
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
 
 async function getSecretMessage() {
     const response = await fetch('/secret-response')
-    const response_text = await response.text();
-    document.getElementById('secret-message-container').innerHTML = response_text;
+    const response_json = await response.json();
+    const random_message = '<h2>' + response_json[Math.floor(Math.random() * response_json.length)] + '</h2>';
+    document.getElementById('secret-message-container').innerHTML = random_message;
 }

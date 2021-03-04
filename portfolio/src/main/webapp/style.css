@@ -25,3 +25,14 @@ body {
     font-size: 18x;
     color: darkmagenta;
 }
+
+#form-section {
+    text-align: center;
+}
+
+#contact-form-container {
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 30%;
+    margin-right: 30%;
+}

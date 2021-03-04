@@ -8,15 +8,43 @@
   </head>
   <body>
     <div id="content">
+
       <h1>Welcome to Nick's Website!</h1>
       <p>Hi, I'm Nick a junior studying Computer Science at Cornell in the very sunny city of Ithaca!</p>
       <p>I was born in Japan but I am from Colombia and the Bronx. </p>
       <p>I like to watch sports such as Formula 1, Basketball (<b>go Knicks!</b>), and Soccer.</p>
+
       <img src="/images/nyc_image.jpg" />
+      
       <p>Click the button to see a fact about me.</p>
       <button onclick="getSecretMessage()"> New Fact! </button>
+    
+      <div id="form-section">
+        <h2>Contact Me!</h2>
+        <div id="contact-form-container">
+            <form action="/form-handler" method="POST">
+                <label>Your name:</label><br/>
+                <input type="text" name="name" size="47"><br/>
+                <br/>
+                <label>Are you a recruiter?</label>
+                <input type="hidden" name="recruiter" value="no" />
+                <input type="checkbox" name="recruiter" value="yes">
+                <label>Yes</label><br/>
+                <br/>
+                <label>Summary of Message:</label><br/>
+                <input type="text" name="summary" size="47"><br/>
+                <br/>
+                <label>Message:</label><br/>
+                <textarea name="message" rows="15" cols="40"></textarea><br/>
+                <br/>
+                <input type="submit" value="Send Message!"/>
+            </form>
+            </div>
+      </div>
+
       <div id="secret-message-container"></div>
       <p>Click <a href="/hello">here</a> to see content created by server code.</p>
+    
     </div>
   </body>
 </html>

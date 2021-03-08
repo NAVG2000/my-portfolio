@@ -26,3 +26,9 @@ function addRandomFact() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+async function getSecretMessage() {
+    const response = await fetch('/secret-response')
+    const response_text = await response.text();
+    document.getElementById('secret-message-container').innerHTML = response_text;
+}

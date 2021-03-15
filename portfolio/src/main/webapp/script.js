@@ -17,8 +17,32 @@
  */
 
 async function getSecretMessage() {
-    const response = await fetch('/secret-response')
+    const response = await fetch('/secret-response');
     const response_json = await response.json();
     const random_message = '<h2>' + response_json[Math.floor(Math.random() * response_json.length)] + '</h2>';
     document.getElementById('secret-message-container').innerHTML = random_message;
+}
+
+async function sendMessage() {
+    const params = new URLSearchParams({
+            name: document.getElementById('name').value,
+            recruiter: document.getElementById('recruiter').value,
+            summary: document.getElementById('summary').value,
+            message: document.getElementById('message').value
+        });
+
+    const response = await fetch('/form-handler?'+ params.toString(), {method:'POST'});
+    const response_json = await response.json();
+    localStorage.setItem('contact-form-response',response_json);
+
+    document.getElementById('sentiment-before-send').style.display="none";
+    document.getElementById('display-sentiment-div').style.display="block";
+    document.getElementById('display-sentiment-div').style.paddingTop="20px";
+    document.getElementById('display-sentiment-div').style.paddingBottom="20px";
+}
+
+function displaySentiment() {
+    const sentiment_score = localStorage.getItem('contact-form-response');
+    const display_sentiment = '<h2> The sentiment score of the message was: ' + sentiment_score + '</h2>';
+    document.getElementById("sentiment-container").innerHTML = display_sentiment;
 }

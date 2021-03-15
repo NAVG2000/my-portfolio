@@ -22,24 +22,32 @@
       <div id="form-section">
         <h2>Contact Me!</h2>
         <div id="contact-form-container">
-            <form action="/form-handler" method="POST">
+            <form onsubmit="return false;" id="contact-form">
                 <label>Your name:</label><br/>
-                <input type="text" name="name" size="47"><br/>
+                <input id="name" type="text" name="name" size="47"><br/>
                 <br/>
                 <label>Are you a recruiter?</label>
-                <input type="hidden" name="recruiter" value="no" />
-                <input type="checkbox" name="recruiter" value="yes">
+                <input id="recruiter" type="hidden" name="recruiter" value="no" />
+                <input id="recruiter" type="checkbox" name="recruiter" value="yes">
                 <label>Yes</label><br/>
                 <br/>
                 <label>Summary of Message:</label><br/>
-                <input type="text" name="summary" size="47"><br/>
+                <input id="summary" type="text" name="summary" size="47"><br/>
                 <br/>
                 <label>Message:</label><br/>
-                <textarea name="message" rows="15" cols="40"></textarea><br/>
+                <textarea id="message" name="message" rows="15" cols="40"></textarea><br/>
                 <br/>
-                <input type="submit" value="Send Message!"/>
+                <input type="submit" value="Send Message!" onclick="sendMessage()"/>
             </form>
             </div>
+      <div id="sentiment-before-send">
+          <h2>See sentiment after sending your message.</h2>
+      </div>
+      <div id="display-sentiment-div" style="display:none;">
+        <button onclick="displaySentiment()"> See Message Sentiment! </button>
+        <div id="sentiment-container"></div>
+      </div>
+
       </div>
 
       <div id="secret-message-container"></div>
